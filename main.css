@@ -1,0 +1,79 @@
+:root {
+  box-sizing: border-box;
+  font-family: "Trebuchet MS";
+  font-size: 25px;
+  text-align: center;
+  color: orange;
+  background-image: url("https://woodlandcemetery.org/wp-content/uploads/2020/02/cemetery_by_vickie666-d45gvuo.jpg");
+  background-repeat: fill;
+  background-attachment: scroll;
+}
+
+h1 {
+  font-family: "Creepster", cursive;
+  font-size: 75px;
+}
+
+#box {
+  color: darkolivegreen;
+  font-variant: small-caps;
+  font-size: 20px;
+  height: 30px;
+  width: 550px;
+  background-color: black;
+  margin: auto;
+  padding: 3px;
+}
+
+#maze {
+  width: 700px;
+  height: 500px;
+  background-color: darkolivegreen;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-grow: 1;
+}
+
+.wall {
+  background-color: purple;
+  display: flex;
+  flex-grow: 1;
+}
+
+.floor,
+.start,
+.finish {
+  background-color: darkolivegreen;
+  flex-grow: 1;
+  display: flex;
+  text-align: center;
+}
+
+#player {
+  background-color: black;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 50%;
+  animation-duration: 100ms;
+}
+
+.cell {
+  display: flex;
+  flex-grow: 1;
+}
+
+#message {
+  font-size: 25px;
+  width: 500px;
+  background: black;
+  margin: auto;
+}
