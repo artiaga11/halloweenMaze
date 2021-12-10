@@ -1,18 +1,18 @@
 const map = [
   "WWWWWWWWWWWWWWWWWWWWW",
-  "W   W     W     W W W",
+  "W   W     WD    WDWDW",
   "W W W WWW WWWWW W W W",
-  "W W W   W     W W   W",
+  "W WDW  DW    DW W   W",
   "W WWWWWWW W WWW W W W",
   "W         W     W W W",
   "W WWW WWWWW WWWWW W W",
-  "W W   W   W W     W W",
+  "W WD  W   W W     W W",
   "W WWWWW W W W WWW W F",
   "S     W W W W W W WWW",
-  "WWWWW W W W W W W W W",
+  "WWWWW W W W W W W WDW",
   "W     W W W   W W W W",
   "W WWWWWWW WWWWW W W W",
-  "W       W       W   W",
+  "W      DW       W   W",
   "WWWWWWWWWWWWWWWWWWWWW",
 ];
 
@@ -44,6 +44,8 @@ function createMaze(map) {
         cell.appendChild(player);
       } else if (map[i][j] === "F") {
         cell.classList.add("finish");
+      } else if (map[i][j] === "D") {
+        cell.classList.add("deadend");
       }
       cell.id = cellId(i, j);
       row.appendChild(cell);
@@ -53,6 +55,19 @@ function createMaze(map) {
   return mazeDiv;
 }
 createMaze(map);
+
+function mazeMessages() {
+  if (map[playerPosition.row][playerPosition.col] === "F") {
+    let winMsg = document.getElementById("message");
+    winMsg.innerHTML = "Whew 😅, the ghouls almost got you!";
+  } else if (map[playerPosition.row][playerPosition.col] === "D") {
+    let winMsg = document.getElementById("message");
+    winMsg.innerHTML = "DEADEND ☠️ Quick, make a u-turn!";
+  } else {
+    let winMsg = document.getElementById("message");
+    winMsg.innerHTML = '"Run Forest, RUN!"';
+  }
+}
 
 document.addEventListener("keydown", function (evt) {
   switch (evt.key) {
@@ -105,10 +120,5 @@ document.addEventListener("keydown", function (evt) {
       }
       break;
   }
-  if (map[playerPosition.row][playerPosition.col] === "F") {
-    let winMsg = document.getElementById("message");
-    winMsg.innerHTML = "Whew 😅, the ghouls almost caught you!";
-  }
+  mazeMessages();
 });
-
-// Study session with Vincent

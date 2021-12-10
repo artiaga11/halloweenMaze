@@ -48,7 +48,8 @@ h1 {
 
 .floor,
 .start,
-.finish {
+.finish,
+.deadend {
   background-color: darkolivegreen;
   flex-grow: 1;
   display: flex;
